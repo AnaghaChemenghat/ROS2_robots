@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+
+<robot name="iiwa" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <material name="gray">
+    <color rgba="0.5 0.5 0.5 1.0"/>
+  </material>
+
+  <link name="iiwa_link0">
+      <visual>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/base_link.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/base_link.stl"/>
+        </geometry>
+      </collision>
+  </link>
+  
+  <link name="iiwa_link1">
+      <visual>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/link_1.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/link_1.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 -0.03 0.12" rpy="0 0 0"/>
+        <mass value="4"/>
+        <inertia ixx="0.1"  ixy="0"  ixz="0" iyy="0.09" iyz="0" izz="0.02" />
+      </inertial>
+  </link>
+  
+  <joint name="iiwa_joint1" type="revolute">
+      <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <parent link="iiwa_link0"/>
+      <child link="iiwa_link1"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="320" lower="-2.9668" upper="2.9668" velocity="1.4834"/>
+      <dynamics damping="1"/>
+  </joint>
+  
+  
+  <link name="iiwa_link2">
+      <visual>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/link_2.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/link_2.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0.0003 0.059 0.042" rpy="0 0 0"/>
+        <mass value="4"/>
+        <inertia ixx="0.05"  ixy="0"  ixz="0" iyy="0.018" iyz="0" izz="0.044" />
+      </inertial>
+  </link>
+  
+    <joint name="iiwa_joint2" type="revolute">
+      <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.7628" soft_upper_limit="1.7628" />
+      <origin rpy="0 0 0" xyz="-0.00043624 0 0.36"/>
+      <parent link="iiwa_link1"/>
+      <child link="iiwa_link2"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="320" lower="-2.0942" upper="2.0942" velocity="1.4834"/>
+      <dynamics damping="1"/>
+  </joint>
+  
+  <link name="iiwa_link3">
+      <visual>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/link_3.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/link_3.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0.03 0.13" rpy="0 0 0"/>
+        <mass value="3"/>
+        <inertia ixx="0.08"  ixy="0"  ixz="0" iyy="0.075" iyz="0" izz="0.01" />
+      </inertial>
+  </link>
+  
+  <joint name="iiwa_joint3" type="revolute">
+      <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <parent link="iiwa_link2"/>
+      <child link="iiwa_link3"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="176" lower="-2.9668" upper="2.9668" velocity="1.7452"/>
+      <dynamics damping="1"/>
+  </joint>
+  
+  <link name="iiwa_link4">
+      <visual>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/link_4.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/link_4.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0.067 0.034" rpy="0 0 0"/>
+        <mass value="2.7"/>
+        <inertia ixx="0.03"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.029" />
+      </inertial>
+  </link>
+  
+  <joint name="iiwa_joint4" type="revolute">
+      <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0718" soft_upper_limit="0.0175" />
+      <origin rpy="0 0 0" xyz="0.00043624 0 0.42"/>
+      <parent link="iiwa_link3"/>
+      <child link="iiwa_link4"/>
+      <axis xyz="0 -1 0"/>
+      <limit effort="176" lower="-2.0942" upper="2.0942" velocity="1.3089"/>
+      <dynamics damping="1"/>
+  </joint>
+  
+  <link name="iiwa_link5">
+      <visual>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/link_5.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/link_5.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0.0001 0.021 0.076" rpy="0 0 0"/>
+        <mass value="1.7"/>
+        <inertia ixx="0.02"  ixy="0"  ixz="0" iyy="0.018" iyz="0" izz="0.005" />
+      </inertial>
+  </link>
+  
+  <joint name="iiwa_joint5" type="revolute">
+      <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <parent link="iiwa_link4"/>
+      <child link="iiwa_link5"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="110" lower="-2.9668" upper="2.9668" velocity="2.2688"/>
+      <dynamics damping="1"/>
+  </joint>
+  
+  <link name="iiwa_link6">
+      <visual>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/link_6.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/link_6.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0.0006 0.0004" rpy="0 0 0"/>
+        <mass value="1.8"/>
+        <inertia ixx="0.025"  ixy="0"  ixz="0" iyy="0.0136" iyz="0" izz="0.0247" />
+      </inertial>
+  </link>
+  
+  <joint name="iiwa_joint6" type="revolute">
+      <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-0.0175" soft_upper_limit="3.7525" />
+      <origin rpy="0 0 0" xyz="0 0 0.4"/>
+      <parent link="iiwa_link5"/>
+      <child link="iiwa_link6"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="40" lower="-2.0942" upper="2.0942" velocity="2.356"/>
+      <dynamics damping="1"/>
+  </joint>
+  
+  <link name="iiwa_link7">
+      <visual>
+        <material name="gray"/>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/link_7_2.stl" scale ="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/link_7_2.stl" scale ="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        <mass value="0.43"/> <!--this is for the MFT Pneumatisch flange-->
+        <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+  </link>
+
+  <joint name="iiwa_joint7" type="revolute">
+      <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <parent link="iiwa_link6"/>
+      <child link="iiwa_link7"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="40" lower="-3.0541" upper="3.0541" velocity="2.356"/>
+      <dynamics damping="1"/>
+  </joint>
+  
+  <link name="iiwa_link8"/>
+  
+  <joint name="iiwa_joint8" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0.107"/>
+      <parent link="iiwa_link7"/>
+      <child link="iiwa_link8"/>
+      <axis xyz="0 0 0"/>
+  </joint>
+  
+  <joint name="iiwa_hand_joint" type="fixed">
+        <parent link="iiwa_link8" />
+        <child link="iiwa_hand" />
+        <origin rpy="0 0 -0.785398163397" xyz="0 0 0" />
+    </joint>
+    
+    <link name="iiwa_hand">
+        <visual>
+            <geometry>
+                <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/hand.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/hand.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.68" />
+            <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3" />
+        </inertial>
+    </link>
+    
+    <link name="iiwa_leftfinger">
+        <visual>
+            <geometry>
+                <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/finger.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/finger.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3" />
+        </inertial>
+    </link>
+    <link name="iiwa_rightfinger">
+        <visual>
+            <origin rpy="0 0 3.14159265359" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/visual/finger.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="0 0 3.14159265359" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/finger.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="0.3" ixy="0.0" ixz="0.0" iyy="0.3" iyz="0.0" izz="0.3" />
+        </inertial>
+    </link>
+    <joint name="iiwa_finger_joint1" type="prismatic">
+        <parent link="iiwa_hand" />
+        <child link="iiwa_leftfinger" />
+        <origin rpy="0 0 0" xyz="0 0 0.0584" />
+        <axis xyz="0 1 0" />
+        <limit effort="20" lower="0.0" upper="0.04" velocity="0.2" />
+        <dynamics damping="1"/>
+    </joint>
+    <joint name="iiwa_finger_joint2" type="prismatic">
+        <parent link="iiwa_hand" />
+        <child link="iiwa_rightfinger" />
+        <origin rpy="0 0 0" xyz="0 0 0.0584" />
+        <axis xyz="0 -1 0" />
+        <limit effort="20" lower="0.0" upper="0.04" velocity="0.2" />
+        <dynamics damping="1"/>
+        <mimic joint="iiwa_finger_joint1" />
+    </joint>
+
+
+</robot>
