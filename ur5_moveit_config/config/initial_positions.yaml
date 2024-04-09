@@ -1,0 +1,10 @@
+# Default initial positions for ur5's ros2_control fake system
+
+initial_positions:
+  ur5_finger_joint1: 0
+  ur5_joint1: -1.2005
+  ur5_joint2: -1.5207
+  ur5_joint3: 1.4887
+  ur5_joint4: 1.6167
+  ur5_joint5: 1.5527
+  ur5_joint6: 0.4002
