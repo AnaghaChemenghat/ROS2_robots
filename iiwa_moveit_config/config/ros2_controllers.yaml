@@ -1,0 +1,34 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    iiwa_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    iiwa_hand_controller:
+      type: position_controllers/GripperActionController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+iiwa_arm_controller:
+  ros__parameters:
+    joints:
+      - iiwa_joint1
+      - iiwa_joint2
+      - iiwa_joint3
+      - iiwa_joint4
+      - iiwa_joint5
+      - iiwa_joint6
+      - iiwa_joint7
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+iiwa_hand_controller:
+  ros__parameters:
+    joint: iiwa_finger_joint1

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iiwa">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+    <xacro:arg name="ros2_control_hardware_type" default="mock_components" />
+
+    <!-- Import iiwa urdf file -->
+    <xacro:include filename="$(find iiwa_description)/urdf/iiwa.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="iiwa.ros2_control.xacro" />
+    <xacro:include filename="iiwa_hand.ros2_control.xacro" />
+
+
+    <xacro:iiwa_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

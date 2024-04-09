@@ -1,0 +1,11 @@
+# Default initial positions for iiwa arms's ros2_control fake system
+
+initial_positions:
+  iiwa_finger_joint1: 0
+  iiwa_joint1: 0.53
+  iiwa_joint2: -0.24
+  iiwa_joint3: -1.55
+  iiwa_joint4: -1.78
+  iiwa_joint5: 0.08
+  iiwa_joint6: 1.31
+  iiwa_joint7: -0.59
